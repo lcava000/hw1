@@ -36,6 +36,7 @@
     </div>
 
     <div class="box">
+      <div class="box content">
         <div class="containerRoom">
             <div class="containerRoomItem">
                 <img src="asset/images/room/room1.jpg" alt="">
@@ -43,7 +44,7 @@
             <div class="containerRoomItem">
                 <div class="boxService">
                     <h3>Room Details</h3>
-                    <p>As you enter the room, you'll be greeted with a spacious and beautifully decorated interior. The room features a comfortable king-size bed, luxurious linens, and plush pillows to ensure a good night's sleep. The room also has a seating area with a sofa and chairs, providing a cozy space to relax and unwind.</p>
+                    <p id="roomDescription"></p> 
                     <h3>Room Service</h3>
                     <ul class="containerService">
                         <li class="containerServiceItem"><i class="fa-solid fa-wifi"></i> Wifi Fast</li>
@@ -58,9 +59,10 @@
                         <li class="containerServiceItem"><i class="fa-solid fa-vault"></i> Safe Vault</li>
                     </ul>
                 </div>
-                <a href="#" class="btn-primary green">Choose your room</a>
+                <a href="#checkInInput" class="btn-primary green">Choose your room</a>
             </div>
         </div>
+      </div>
     </div>
 
     <div class="box">
@@ -70,17 +72,17 @@
             <div class="date-selection">
                 <div class="check-in">
                   <label for="check-in-date">Check-in:</label>
-                  <input type="date" id="check-in-date" name="check-in-date" value="2023-05-05">
+                  <input type="date" id="checkInInput" name="check-in-date" value="2023-05-05">
                 </div>
               
                 <div class="check-out">
                   <label for="check-out-date">Check-out:</label>
-                  <input type="date" id="check-out-date" name="check-out-date" value="2023-05-06">
+                  <input type="date" id="checkOutInput" name="check-out-date" value="2023-05-06">
                 </div>
 
                 <div class="check-out">
-                    <label for="check-out-date">_</label>
-                    <a href="#" class="btn-primary green borded">Search</a>
+                    <label for="search-btn">-</label>
+                    <button class="btn-primary white" id="search_room">Search</button>
                   </div>
 
             </div>
@@ -95,49 +97,7 @@
                 <th>Reservation</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Single Sea View Suite</td>
-                <td>Deluxe Room</td>
-                <td>1200.00 AED</td>
-                <td class="available">Available</td>
-                <td><a href="#" class="btn-primary green borded small">Book Now</a></td>
-              </tr>
-              <tr>
-                <td>Double Sea View Suite</td>
-                <td>Deluxe Room</td>
-                <td>1500.00 AED</td>
-                <td class="booked">Booked</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Quadruple Sea View Suite</td>
-                <td>Deluxe Room</td>
-                <td>1900.00 AED</td>
-                <td class="available">Available</td>
-                <td><a href="#" class="btn-primary green borded small">Book Now</a></td>
-              </tr>
-              <tr>
-                <td>Single City View Suite</td>
-                <td>Deluxe Room</td>
-                <td>1000.00 AED</td>
-                <td class="available">Available</td>
-                <td><a href="#" class="btn-primary green borded small">Book Now</a></td>
-              </tr>
-              <tr>
-                <td>Double City View Suite</td>
-                <td>Deluxe Room</td>
-                <td>1200.00 AED</td>
-                <td class="booked">Booked</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Quadruple City View Suite</td>
-                <td>Deluxe Room</td>
-                <td>1500.00 AED</td>
-                <td class="booked">Booked</td>
-                <td></td>
-              </tr>
+            <tbody id="roomPriceTable">
             </tbody>
           </table>
         </div>
@@ -161,6 +121,7 @@
         <p>&copy; 2023 Dubai Emaar Properties Hotel. All rights reserved.</p>
     </footer>
 
+    <script src='./js/room.js' defer></script>
 
 
 </body>

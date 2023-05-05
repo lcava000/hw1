@@ -8,6 +8,11 @@
 /* -------------------------------------------------------------------------------- */
 /* ! General Button */
 /* -------------------------------------------------------------------------------- */
+
+button{
+
+}
+
 .btn-primary {
     text-align: center; 
     font-family: 'Reem Kufi Ink', sans-serif;
@@ -16,34 +21,48 @@
     cursor: pointer; 
     text-decoration: none;
     padding: 0.50em 1em;
+
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
+
+.btn-primary.small{
+    font-size: 0.90em;
+    margin: 0em 0em;
+}
+
+
+/* ! White Button */
 
 .btn-primary.white {
     background-color: white;
     color: #122526;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    border: 2px solid #122526;
 }
+
+.btn-primary.white:hover {
+    background-color: #122526;
+    color: white;
+    border: 2px solid white;
+}
+
+
+/* ! Green Button */
 
 .btn-primary.green {
     background-color: #122526;
     color: white;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    border: 2px solid white;
 }
 
-.btn-primary.green.borded{
+.btn-primary.green:hover {
     background-color: white;
     color: #122526;
-    margin-bottom: 10px;
-    margin-top: 10px;
     border: 2px solid #122526;
 }
 
-.btn-primary.small{
-    padding: 0.10em 0.50em;
-    font-size: 0.90em;
-}
+
+
 
 
 
@@ -301,28 +320,25 @@ h2 {
 /* ! General */
 /* -------------------------------------------------------------------------------- */
 .box {
-    min-height: 65vh;
+    min-height: 40vh;
     height: auto;
 
-
-
 }
+
+
 .box.content {
     margin-top: 0%;
     margin-left: 10%;
     margin-right: 10%;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-
-
 }
 
 
 h1, h2, h3 {
-    margin-bottom: 15px;
+    margin-bottom: 0.20em;
 }
 
 p {
@@ -487,7 +503,7 @@ header.otherpage nav div.logo a img{
 /* -------------------------------------------------------------------------------- */
 
 .containerRoom{
-    margin: 10% 10%;
+    margin-top: 3em;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -565,7 +581,8 @@ th, td {
     border-bottom: 1px solid #ddd;
 }
 th {
-    background-color: #f2f2f2;
+    background-color: #122526;
+    color: white;
 }
 
 .available {
@@ -626,12 +643,76 @@ width: 99%;
 /* -------------------------------------------------------------------------------- */
 
 @media screen and (max-width: 768px) {
+    header {
+        height: 300px;
+    }
+
+    .logo img {
+        max-height: 80px;
+    }
+
+    nav {
+        margin: 0px;
+    }
+
     nav ul {
         flex-direction: column;
         align-items: center;
+        margin: 0px;
+    }
+
+    nav ul li {
+        margin: 10px;
     }
 
     .room {
         width: 100%;
+    }
+
+    .container_testimonial {
+        margin: 20px;
+    }
+
+    .testimonial {
+        width: 100%;
+    }
+
+    .testimonial img {
+        height: 200px;
+    }
+
+    .boxDescription {
+        margin: 50px 20px;
+    }
+
+    .containerRoom .containerRoomItem {
+        flex-basis: 100%;
+    }
+
+    .boxService {
+        margin: 5% 3%;
+    }
+
+    .containerService .containerServiceItem {
+        margin-right: 0px;
+    }
+
+    .container {
+        margin: 5%;
+    }
+
+    .date-selection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .check-in,
+    .check-out {
+        margin: 1em 0px;
+    }
+
+    input[type="date"] {
+        width: 100%;
+        margin-bottom: 1em;
     }
 }
