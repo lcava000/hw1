@@ -15,14 +15,13 @@ function roomDescriptionOnText(text){
     data = JSON.parse(text);
 
     //Assign roomDescription
-    const element = document.querySelector("#roomDescription");
-    element.innerHTML = data.roomDescription;
+    const p = document.getElementById('roomDescription');
+    p.innerHTML = data.roomDescription;
 }
 
 function roomDescriptionOnResponse(response){
     return response.text();
 }
-
 
 fetch("./json/roomDetails.php?id="+id).then(roomDescriptionOnResponse).then(roomDescriptionOnText);
 
@@ -34,7 +33,6 @@ fetch("./json/roomDetails.php?id="+id).then(roomDescriptionOnResponse).then(room
 function roomPriceOnText(text){
     //JSON Object Data
     data = JSON.parse(text);
-    console.log(data);
 
     const priceTable = document.querySelector("#roomPriceTable");
 
@@ -118,22 +116,32 @@ function roomPriceOnResponse(response){
 const search = document.getElementById("search_room");
 search.addEventListener("click", () => {
 
+    //Date
+    const checkInInput = document.querySelector("#checkInInput").value
+    const checkOutInput = document.querySelector("#checkOutInput").value
+
+    if(checkOutInput<=checkInInput){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'La data del checkout non è corretta!',
+          })
+
+
+        //Set checkout date checkin date + 1
+        document.querySelector("#checkOutInput").value = '';
+    }
+
     //Delete all Child Elements if they exist
     const priceTable = document.querySelector("#roomPriceTable");
     while (priceTable.firstChild) {
         priceTable.removeChild(priceTable.firstChild);
     }
 
-    //Date
-    const checkInInput = document.querySelector("#checkInInput").value
-    const checkOutInput = document.querySelector("#checkOutInput").value
-
     //Get Request
     fetch("./json/roomPrice.php?id="+id+"&checkin="+ checkInInput + "&checkout=" + checkOutInput).then(roomPriceOnResponse).then(roomPriceOnText);
 
 });
-
-
 
 
 /**************************************************
@@ -158,3 +166,4 @@ document.querySelector("#checkInInput").value = today_formatted;
 document.querySelector("#checkOutInput").value = tomorrow_formatted;
 
 search.click();
+
