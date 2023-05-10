@@ -23,7 +23,7 @@ function roomDescriptionOnResponse(response){
     return response.text();
 }
 
-fetch("./json/roomDetails.php?id="+id).then(roomDescriptionOnResponse).then(roomDescriptionOnText);
+fetch("/json/roomDetails.php?id="+id).then(roomDescriptionOnResponse).then(roomDescriptionOnText);
 
 
 /*
@@ -97,7 +97,7 @@ function roomPriceOnText(text){
     
         //Redirect to Booking Checkout Page when Clicking Book Now Button
         const room_selected = button.getAttribute('data-id');
-        window.location.href = './checkout.html?id=' + room_selected + '&checkin=' + checkInInput + '&checkout=' + checkOutInput;
+        window.location.href = './checkout.php?id=' + room_selected + '&checkin=' + checkInInput + '&checkout=' + checkOutInput;
 
       });
     });
@@ -139,7 +139,7 @@ search.addEventListener("click", () => {
     }
 
     //Get Request
-    fetch("./json/roomPrice.php?id="+id+"&checkin="+ checkInInput + "&checkout=" + checkOutInput).then(roomPriceOnResponse).then(roomPriceOnText);
+    fetch("/json/roomPrice.php?id="+id+"&checkin="+ checkInInput + "&checkout=" + checkOutInput).then(roomPriceOnResponse).then(roomPriceOnText);
 
 });
 

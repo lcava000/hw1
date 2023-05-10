@@ -639,6 +639,182 @@ width: 99%;
 
 
 /* -------------------------------------------------------------------------------- */
+/* ! Checkout Section */
+/* -------------------------------------------------------------------------------- */
+
+.containerCheckout{
+    margin-top: 3em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 2%;
+    font-family: 'Reem Kufi Ink', sans-serif;
+
+}
+
+.containerCheckout .containerCheckoutItemForm{
+    flex-basis: 60%;
+    box-sizing: border-box;
+}
+
+.containerCheckout .containerCheckoutItemDetails{
+    flex-basis: 40%;
+    box-sizing: border-box;
+}
+
+.price {
+    color: #fff;
+    margin: 6% 6%;
+    padding: 0.20em;
+    align-items: center;
+    background-color: #122526;
+}
+
+.containerCheckout h3{
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.containerCheckout h5{
+    font-weight: 700;
+    font-size: 17px;
+}
+.containerCheckout i{
+    font-size: 27px;
+}
+
+.containerTable{
+    margin: 10%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 200;
+}
+
+.containerTable.total{
+    font-size: 22px;
+    font-weight: 700;
+
+}
+
+.formCheckout {
+    margin: auto 10%;
+}
+
+.paymentBlock {
+    margin: 8% 15%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+}
+  
+td {
+text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* -------------------------------------------------------------------------------- */
+/* ! Stripe Integration Element */
+/* -------------------------------------------------------------------------------- */
+
+/* Can't see what I type without this */
+#card-number.form-control,
+#card-cvc.form-control,
+#card-exp.form-control {
+    display:inline-block;
+}
+
+.StripeElement{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+/* Blue outline on focus */
+.StripeElement--focus {
+    border-color: #80BDFF;
+    outline:0;
+    box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+/* -------------------------------------------------------------------------------- */
+/* ! Form General Element */
+/* -------------------------------------------------------------------------------- */
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="email"], input[type="number"], input[type="password"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+
+.formButton{
+    background-color: #122526;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.formButton:hover {
+    background-color: white;
+    color: #122526;
+    border: 2px solid #122526;
+}
+
+.next-btn, .prev-btn {
+    margin-right: 10px;
+}
+
+.submit-btn {
+    display: none;
+}
+
+.step2, .step3 {
+    
+}
+
+h2 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Reem Kufi Ink', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------------- */
 /* ! Mobile Page */
 /* -------------------------------------------------------------------------------- */
 
