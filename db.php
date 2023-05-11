@@ -1,5 +1,4 @@
 <?php
-
 /*
     // DB Credentials
     $db_host = 'db4free.net';
@@ -13,9 +12,6 @@
     $db_name = 'hw1';
     $db_username = 'root';
     $db_password = '';
-
-    // Unique Identifier to Security Function
-    $set_server_enc_key = "mrwYqtbUaZsUwMWjbS6VD5FfWNwL3z2yX9dbZswZ6XyFzGvs";
 
     //Set time zone
     date_default_timezone_set('Europe/Rome');

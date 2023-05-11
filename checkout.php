@@ -1,3 +1,55 @@
+<?php 
+session_start();
+require_once('./function.php');
+
+//Save POST into SESSION
+$_SESSION['id'] = $_GET['id'];
+$_SESSION['checkin'] = $_GET['checkin'];
+$_SESSION['checkout'] = $_GET['checkout'];
+
+if(isset($_SESSION["isLogged"]) && $_SESSION["isLogged"] === true) {
+  header("Location: payment.html");
+  exit;
+}
+
+if($_POST['action']=="login_form"){
+  $email_form = $_POST['log_email'];
+  $password_form = $_POST['log_password'];
+
+  $result = login_check($email_form, $password_form);
+
+  if ($result['success']) {
+      $_SESSION['isLogged'] = true;
+      $_SESSION['user_id'] = $result['user_id'];
+      header("Location: payment.html");
+      exit;
+  } else {
+      $error_description = $result['error_description'];
+  }
+}
+
+if($_POST['action']=="register_form"){
+  $name = $_POST['name'];
+  $surname = $_POST['surname'];
+  $trn = $_POST['trn'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $password_confirm = $_POST['password_confirm'];
+
+  $result = register($name, $surname, $trn, $email, $password, $password_confirm);
+
+  if ($result['success'] == true) {
+      $_SESSION['isLogged'] = true;
+      $_SESSION['user_id'] = $result['user_id'];
+      header("Location: payment.html");
+      exit;
+  } else {
+      echo $result['error_description'];
+  }
+}
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
