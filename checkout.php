@@ -25,6 +25,13 @@ if($_POST['action']=="login_form"){
       exit;
   } else {
       $error_description = $result['error_description'];
+      echo "<script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '$error_description'
+            });
+            </script>";
   }
 }
 
@@ -37,14 +44,21 @@ if($_POST['action']=="register_form"){
   $password_confirm = $_POST['password_confirm'];
 
   $result = register($name, $surname, $trn, $email, $password, $password_confirm);
-
+  
   if ($result['success'] == true) {
       $_SESSION['isLogged'] = true;
       $_SESSION['user_id'] = $result['user_id'];
       header("Location: payment.html");
       exit;
   } else {
-      echo $result['error_description'];
+    $error_description = $result['error_description'];
+    echo "<script>
+          Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: '$error_description'
+          });
+          </script>";
   }
 }
 

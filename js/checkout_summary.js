@@ -40,29 +40,6 @@ total_night.innerHTML = total_night.value;
 total_price.innerHTML = price_per_night.value * total_night.value + ' AED';
 
 
-/**************************************************
-            SAVE AL DATA IN SESSION
-*************************************
-
-fetch('avvia_sessione.php', {
-    method: 'POST'
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.success) {
-      console.log(data.message);
-    } else {
-      console.error(data.message);
-    }
-  })
-  .catch(error => console.error(error));
-  
-
-
-
-*************/
-
-
 
 
 

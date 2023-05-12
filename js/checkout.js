@@ -109,10 +109,10 @@ goLoginSubmit.addEventListener("click", function(event) {
         return;
     }
 
-    if (!(password.length > 8 && /[A-Z]/.test(password) && /\d/.test(password))) {
+    if (!(password.length >= 8 && /[A-Z]/.test(password) && /[0-9]/.test(password))) {
         Swal.fire(
-            'Error!',
-            'Please enter a valid password! (8 characters, 1 uppercase, 1 number)',
+            'Errore!',
+            'Inserisci una password valida! (8 caratteri, 1 maiuscola, 1 numero)',
             'error'
         );
         return;
