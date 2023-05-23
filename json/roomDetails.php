@@ -11,15 +11,15 @@ if (empty($roomServiceId)) {
     $data = array();
     // Query Request
     $array_read = array(':roomServiceId'  => $roomServiceId);
-    $sql_read = "SELECT *  FROM `roomservice` WHERE roomId = :roomServiceId";
+    $sql_read = "SELECT *  FROM `roomservice` WHERE roomid = :roomServiceId";
     list($status_read,$content_read,$nrows_read) = read_db_pdo($sql_read,$array_read);
 
     if($nrows_read > 0){
 
         $data = array(
-            'roomName' => $content_read[0]["roomName"],
-            'roomDescription' => $content_read[0]["roomDescription"],
-            'roomImage' => $content_read[0]["roomImage"]
+            'roomName' => $content_read[0]["roomname"],
+            'roomDescription' => $content_read[0]["roomdescription"],
+            'roomImage' => $content_read[0]["roomimage"]
         );
 
         // Convert the PHP array to a JSON string

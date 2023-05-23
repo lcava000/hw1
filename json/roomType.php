@@ -11,11 +11,11 @@ require_once('../function.php');
         foreach($content_read as $content_read_v){
 
             $data[] = array(
-                'roomId' => $content_read_v["roomId"],
-                'roomName' => $content_read_v["roomName"],
-                'roomDescription' => $content_read_v["roomDescription"],
-                'roomShortDescription' => $content_read_v["roomShortDescription"],
-                'roomImage' => $content_read_v["roomImage"],
+                'roomId' => $content_read_v["roomid"],
+                'roomName' => $content_read_v["roomname"],
+                'roomDescription' => $content_read_v["roomdescription"],
+                'roomShortDescription' => $content_read_v["roomshortdescription"],
+                'roomImage' => $content_read_v["roomimage"],
             );
         }
 

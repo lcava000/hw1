@@ -11,7 +11,7 @@ if (empty($customerId)) {
     $data = array();
     // Query Request
     $array_read = array(':customerId'  => $customerId);
-    $sql_read = "SELECT * FROM `roomreservation` JOIN roomtype ON roomtype.id = roomreservation.roomId WHERE customerId = :customerId;";
+    $sql_read = "SELECT * FROM `roomreservation` JOIN roomtype ON roomtype.id = roomreservation.roomId WHERE customerid = :customerId;";
     list($status_read,$content_read,$nrows_read) = read_db_pdo($sql_read,$array_read);
 
     if($nrows_read > 0){
@@ -19,13 +19,13 @@ if (empty($customerId)) {
 
             $data[] = array(
                 'id' => $content_read_v["id"],
-                'checkinDate' => $content_read_v["checkinDate"],
-                'checkoutDate' => $content_read_v["checkoutDate"],
-                'totalPayed' => $content_read_v["totalPayed"] / 100,
-                'isConfirmed' => $content_read_v["isConfirmed"],
-                'roomName' => $content_read_v["roomName"],
-                'roomBed' => $content_read_v["roomBed"],
-                'invoiceUrl' => $content_read_v["invoiceUrl"],
+                'checkinDate' => $content_read_v["checkindate"],
+                'checkoutDate' => $content_read_v["checkoutdate"],
+                'totalPayed' => $content_read_v["totalpayed"] / 100,
+                'isConfirmed' => $content_read_v["isconfirmed"],
+                'roomName' => $content_read_v["roomname"],
+                'roomBed' => $content_read_v["roombed"],
+                'invoiceUrl' => $content_read_v["invoiceurl"],
                 'timestamp' => $content_read_v["timestamp"]
             );
         }

@@ -14,23 +14,23 @@ header('Content-Type: application/json');
 //Fetch the order info from DB 
 $array_read = array(':sessionid'  => session_id());
 $sql_read = "SELECT 
-            orderattempt.roomType,
-            roomType.roomName,  
-            orderattempt.checkinDate,
-            orderattempt.checkoutDate,
-            DATEDIFF(orderattempt.checkoutDate, orderattempt.checkinDate) * roomType.roomPrice AS totalPrice
+            orderattempt.roomtype,
+            roomtype.roomname,  
+            orderattempt.checkindate,
+            orderattempt.checkoutdate,
+            DATEDIFF(orderattempt.checkoutdate, orderattempt.checkindate) * roomtype.roomprice AS totalprice
             FROM orderattempt
-            JOIN roomType ON roomType.id = orderattempt.roomType
-            WHERE orderattempt.sessionId = :sessionid
+            JOIN roomtype ON roomtype.id = orderattempt.roomtype
+            WHERE orderattempt.sessionid = :sessionid
             ORDER BY orderattempt.timestamp DESC
             LIMIT 1;";
 list($status_read,$content_read,$nrows_read) = read_db_pdo($sql_read,$array_read);
 if($nrows_read > 0){
-      $roomId = $content_read[0]["roomType"];
-      $roomName = $content_read[0]["roomName"];
-      $checkin = $content_read[0]["checkinDate"];
-      $checkout = $content_read[0]["checkoutDate"];
-      $totalPrice = $content_read[0]["totalPrice"];
+      $roomId = $content_read[0]["roomtype"];
+      $roomName = $content_read[0]["roomname"];
+      $checkin = $content_read[0]["checkindate"];
+      $checkout = $content_read[0]["checkoutdate"];
+      $totalPrice = $content_read[0]["totalprice"];
 }
 
 $customerId = $_SESSION['user_id'];
@@ -55,7 +55,7 @@ try {
   // Update the order in the database
   // Delete order attempt from DB
   $array_delete = array(':sessionid'  => session_id());
-  $sql_delete = "DELETE FROM orderattempt WHERE sessionId = :sessionid;";
+  $sql_delete = "DELETE FROM orderattempt WHERE sessionid = :sessionid;";
   list($status_delete,$content_delete,$nrows_delete) = read_db_pdo($sql_delete,$array_delete);
 
   //Update reservation 
@@ -68,7 +68,7 @@ try {
     ':invoice_path' => $invoice_path
   );
 
-  $sql_insert = "INSERT INTO roomreservation (customerId, roomId, checkinDate, checkoutDate, totalPayed, invoiceUrl, isConfirmed)  
+  $sql_insert = "INSERT INTO roomreservation (customerid, roomid, checkindate, checkoutdate, totalpayed, invoiceurl, isconfirmed)  
                 VALUES (:customerId, :roomId, :checkin, :checkout, :amount, :invoice_path,'1')";
   list($status_insert, $content_insert, $nrows_insert) = write_db_pdo($sql_insert, $params);
 

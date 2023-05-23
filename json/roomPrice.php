@@ -13,7 +13,7 @@ if (empty($roomServiceId) || empty($checkinDate) || empty($checkoutDate)) {
     $data = array();
     // Query Request
     $array_read = array(':roomServiceId'  => $roomServiceId);
-    $sql_read = "SELECT id, roomType.roomName, roomType.roomBed, roomPrice, roomService.roomName as 'serviceName' FROM `roomType` JOIN roomService ON roomService.roomId = roomType.roomServiceId WHERE roomServiceId = :roomServiceId";
+    $sql_read = "SELECT id, roomtype.roomname, roomtype.roombed, roomprice, roomservice.roomname as 'servicename' FROM `roomtype` JOIN roomservice ON roomservice.roomid = roomtype.roomserviceid WHERE roomserviceid = :roomServiceId";
     list($status_read,$content_read,$nrows_read) = read_db_pdo($sql_read,$array_read);
 
     if($nrows_read > 0){
@@ -21,8 +21,8 @@ if (empty($roomServiceId) || empty($checkinDate) || empty($checkoutDate)) {
 
             // Query Check if room is avaible
             $array_check_room = array(':roomId'  => $content_read_v["id"], ':checkinDate'  => $checkinDate, ':checkoutDate'  => $checkoutDate);
-            $sql_check_room = "SELECT * FROM `roomReservation` 
-                                WHERE roomId =:roomId AND checkoutDate > :checkinDate AND checkinDate < :checkoutDate;
+            $sql_check_room = "SELECT * FROM `roomreservation` 
+                                WHERE roomid =:roomId AND checkoutdate > :checkinDate AND checkindate < :checkoutDate;
                                 ;";
             list($status_check_room,$content_check_room,$nrows_check_room) = read_db_pdo($sql_check_room,$array_check_room);
 
@@ -35,10 +35,10 @@ if (empty($roomServiceId) || empty($checkinDate) || empty($checkoutDate)) {
 
             $data[] = array(
                 'id' => $content_read_v["id"],
-                'roomName' => $content_read_v["roomName"],
-                'roomBed' => $content_read_v["roomBed"],
-                'roomPrice' => $content_read_v["roomPrice"],
-                'serviceName' => $content_read_v["serviceName"],
+                'roomName' => $content_read_v["roomname"],
+                'roomBed' => $content_read_v["roombed"],
+                'roomPrice' => $content_read_v["roomprice"],
+                'serviceName' => $content_read_v["servicename"],
                 'available' => $available
             );
         }

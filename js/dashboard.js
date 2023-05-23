@@ -117,7 +117,7 @@ fetch('../json/getUserId.php')
   .then(data => {
     const userid = data;
     console.log('Success to get ID:', userid);
-    fetch("../json/bookingSummary.php?customerId="+userid).then(summaryOnResponse).then(summartyOnText);
+    fetch("./json/bookingSummary.php?customerId="+userid).then(summaryOnResponse).then(summartyOnText);
 
   })
   .catch(error => {

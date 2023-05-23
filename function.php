@@ -281,15 +281,15 @@ function orderAttempt($idRoom, $checkinDate, $checkoutDate, $sessionId) {
 
 	//if the order attempt is already in the db, don't insert it again
 	$sql_attempt = "
-	INSERT INTO orderattempt (roomType, checkinDate, checkoutDate, sessionId)
+	INSERT INTO orderattempt (roomtype, checkindate, checkoutdate, sessionid)
 	SELECT :idRoom, :checkinDate, :checkoutDate, :sessionId
 	WHERE NOT EXISTS (
 		SELECT 1
 		FROM orderattempt
-		WHERE roomType = :idRoom
-		  AND checkinDate = :checkinDate
-		  AND checkoutDate = :checkoutDate
-		  AND sessionId = :sessionId
+		WHERE roomtype = :idRoom
+		  AND checkindate = :checkinDate
+		  AND checkoutdate = :checkoutDate
+		  AND sessionid = :sessionId
 	); 
 	";
 	list($status_attempt, $content_attempt, $nrows_attempt) = read_db_pdo($sql_attempt, $array_attempt);

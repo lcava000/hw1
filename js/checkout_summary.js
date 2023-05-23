@@ -22,7 +22,7 @@ const total_price = document.querySelector('#total_price');
 /**************************************************
                     MAIN FECTH
 **************************************************/
-fetch('../json/roomCheckoutSummary.php?id=' + id_url)
+fetch('./json/roomCheckoutSummary.php?id=' + id_url)
   .then(response => response.json())
   .then(data => {
 

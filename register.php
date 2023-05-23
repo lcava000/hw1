@@ -22,16 +22,10 @@ session_start();
     <header class="otherpage">
         <nav>  
             <div class="logo">
-                <a href="#home"><img src="asset/logo/white.png" alt="Dubai Real Estate"></a>
+                <a href="./index.html"><img src="asset/logo/white.png" alt="Dubai Real Estate"></a>
             </div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#rooms">Rooms</a></li>
-                <li><a href="#facilities">Facilities</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
             <div class="headerButton">
-                <a href="#" class="btn-primary white">Book now</a>
+                <a href="./login.php" class="btn-primary white">Login</a>
             </div>
         </nav>
     </header>

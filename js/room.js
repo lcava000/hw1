@@ -33,7 +33,7 @@ function roomDescriptionOnResponse(response){
     return response.text();
 }
 
-fetch("../json/roomDetails.php?id="+id).then(roomDescriptionOnResponse).then(roomDescriptionOnText);
+fetch("./json/roomDetails.php?id="+id).then(roomDescriptionOnResponse).then(roomDescriptionOnText);
 
 
 /*
@@ -168,7 +168,7 @@ search.addEventListener("click", () => {
     }
 
     //Get Request
-    fetch("../json/roomPrice.php?id="+id+"&checkin="+ checkInInput + "&checkout=" + checkOutInput).then(roomPriceOnResponse).then(roomPriceOnText);
+    fetch("./json/roomPrice.php?id="+id+"&checkin="+ checkInInput + "&checkout=" + checkOutInput).then(roomPriceOnResponse).then(roomPriceOnText);
 
 });
 

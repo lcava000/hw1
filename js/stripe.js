@@ -22,16 +22,18 @@ async function handleSubmit(event) {
 }
 
 function stripeTokenHandler(token) {
+  document.querySelector('.loader-container').style.display = 'block';
   const formData = new FormData();
   formData.append('stripeToken', token.id);
     //the details of payment are sent by server for processing and charging the card using the fetch API in secure way
 
-  fetch('../charge.php', {
+  fetch('./charge.php', {
     method: 'POST',
     body: formData
   })
     .then(response => response.json())
     .then(result => {
+      document.querySelector('.loader-container').style.display = 'none';
       if (result.error) {
         console.log('Payment Error:', result.error);
         Swal.fire('Payment Error!', 'Your card was declined!', 'error');
@@ -45,6 +47,7 @@ function stripeTokenHandler(token) {
       }
     })
     .catch(error => {
+      document.querySelector('.loader-container').style.display = 'none';
       console.error('Error:', error);
     });
 }

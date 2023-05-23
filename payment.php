@@ -28,6 +28,10 @@
         </nav>
     </header>
 
+    <div class="loader-container">
+      <div class="loader"></div>
+    </div>
+
     <div class="box">
             <div class="containerCheckout">
               <div class="containerCheckoutItemForm" id="containerCheckoutItemForm">
