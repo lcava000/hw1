@@ -112,7 +112,7 @@ function summaryOnResponse(response){
 
 
 
-fetch('../json/getUserId.php')
+fetch('./json/getUserId.php')
   .then(response => response.text())
   .then(data => {
     const userid = data;
