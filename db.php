@@ -1,12 +1,5 @@
 <?php
-/*
-    // DB Credentials
-    $db_host = 'db4free.net';
-    $db_name = 'test_hw1';
-    $db_username = 'test_hw1';
-    $db_password = 'ttIn3Y6vc8';
 
-*/
     // DB Credentials
     $db_host = 'localhost';
     $db_name = 'hw1';

@@ -6,7 +6,8 @@
 function summartyOnText(text){
     data = JSON.parse(text);
 
-    const reservationTable = document.querySelector("#summaryReservation");
+    const reservationTable = document.querySelector("#summaryReservation"); //RESERCATION TABLE
+    const paymentReservation = document.querySelector("#paymentReservation"); //INVOICE TABLE 
 
     data.forEach(element => {
         const tr = document.createElement("tr");
@@ -54,6 +55,49 @@ function summartyOnText(text){
         tr.appendChild(reservation);
 
         reservationTable.appendChild(tr);
+
+        //INVOICE TABLE
+
+        const itr = document.createElement("tr");
+
+        //PAYMENT DATE
+        const paymentdate = document.createElement("td");
+        paymentdate.innerHTML = element.timestamp;
+        itr.appendChild(paymentdate);
+
+        //AMOUNT
+        const amount =  document.createElement("td");
+        amount.innerHTML = element.totalPayed + " AED";
+        itr.appendChild(amount);
+
+        //PAYMENT METHOD
+        const paymentmethod =  document.createElement("td");
+        paymentmethod.innerHTML = "Credit Card"
+        itr.appendChild(paymentmethod);
+
+        //BUTTON
+        const ireservation = document.createElement("td");
+        const ibutton = document.createElement("a");
+        ibutton.innerHTML = "Download Invoice";
+        ibutton.classList.add("btn-primary");
+        ibutton.classList.add("white");
+        ibutton.classList.add("small");
+        ibutton.id = "downloadBtn";
+        ibutton.setAttribute("button-type", "booking");
+        ibutton.setAttribute("href", element.invoiceUrl);
+        ibutton.setAttribute("target", "_blank");
+
+        //per comodità ho salvato l'invoice url in href del <a>
+        //così da poterlo scaricare  quando clicco         
+        //anche se è poco carino
+        //avessi avuto più tempo avrei fatto una funzione che tramite una fetch 
+        //prende l'url e lo scarica
+
+        ireservation.appendChild(ibutton);
+        itr.appendChild(ireservation);
+
+        paymentReservation.appendChild(itr);
+
     });
 }
 
@@ -61,102 +105,27 @@ function summaryOnResponse(response){
     return response.text();
 }
 
-fetch("/json/bookingSummary.php?customerId=1").then(summaryOnResponse).then(summartyOnText);
-
 /*  -----------------------------------------------------------------------------------------------
-    CREATION DATE: 2023/05/12
-    PAYMENT RESERVATION
+    CREATION DATE: 2023/05/16
+    DOWNLOAD INVOICE
 --------------------------------------------------------------------------------------------------- */
 
-function paymentOnText(text){
-    data = JSON.parse(text);
-
-    const paymentReservation = document.querySelector("#paymentReservation");
-
-    data.forEach(element => {
-        const tr = document.createElement("tr");
-
-        //INVOICE NUMBER
-        const invoiceNumber = document.createElement("td");
-        invoiceNumber.innerHTML = element.paymentId;
-        tr.appendChild(invoiceNumber);
-
-        //PAYMENT DATE
-        const paymentdate = document.createElement("td");
-        paymentdate.innerHTML = element.paymentDate;
-        tr.appendChild(paymentdate);
-
-        //AMOUNT
-        const amount =  document.createElement("td");
-        amount.innerHTML = element.amount + " AED";
-        tr.appendChild(amount);
-
-        //PAYMENT METHOD
-        const paymentmethod =  document.createElement("td");
-        paymentmethod.innerHTML = element.paymentMethod
-        tr.appendChild(paymentmethod);
 
 
-        //BUTTON
-        const reservation = document.createElement("td");
-        const button = document.createElement("button");
-        button.innerHTML = "Download Invoice";
-        button.classList.add("btn-primary");
-        button.classList.add("white");
-        button.classList.add("small");
-        button.setAttribute("button-type", "booking");
-        button.setAttribute("data-id", element.paymentId);
+fetch('./json/getUserId.php')
+  .then(response => response.text())
+  .then(data => {
+    const userid = data;
+    console.log('Success to get ID:', userid);
+    fetch("/json/bookingSummary.php?customerId="+userid).then(summaryOnResponse).then(summartyOnText);
 
-        reservation.appendChild(button);
-        tr.appendChild(reservation);
+  })
+  .catch(error => {
+    console.error('Error to get ID:', error);
+  });
 
-        paymentReservation.appendChild(tr);
-    });
-}
-
-
-fetch("/json/bookingPayment.php?customerId=1").then(summaryOnResponse).then(paymentOnText);
 
 /*  -----------------------------------------------------------------------------------------------
     CREATION DATE: 2023/05/12
     PDF MAKE INVOICE
 --------------------------------------------------------------------------------------------------- */
-
-
-const axios = require('axios');
-
-// Funzione per scaricare una fattura da Stripe
-async function downloadInvoiceFromStripe(invoiceId) {
-  try {
-    // Effettua una richiesta GET all'API di Stripe per ottenere le informazioni sulla fattura
-    const response = await axios.get(`https://api.stripe.com/v1/invoices/${invoiceId}`, {
-      headers: {
-        Authorization: 'Bearer pk_test_51HkPqZKomNJ2WTb0Ly417EGfPfwaS4UaSdFhWnl3CfkLFzO5qMkXPXnmYqmiTNyDlIXtCRMSPIC7xveJF5UhVbVc00UsGxPG3u', // Sostituisci <API_KEY_STRIPE> con la tua chiave API di Stripe
-      },
-    });
-
-    // Verifica se la richiesta ha avuto successo e se è presente il link per il download del file PDF
-    if (response.status === 200 && response.data && response.data.invoice_pdf) {
-      // Effettua una nuova richiesta GET per scaricare il file PDF
-      const invoicePdfResponse = await axios.get(response.data.invoice_pdf, {
-        responseType: 'arraybuffer', // Specifica il tipo di risposta come array di byte
-      });
-
-      // Esegue il download del file PDF
-      const link = document.createElement('a');
-      link.href = window.URL.createObjectURL(new Blob([invoicePdfResponse.data], { type: 'application/pdf' }));
-      link.download = `invoice_${invoiceId}.pdf`;
-      link.click();
-    } else {
-      console.log('Impossibile trovare il link per il download del file PDF.');
-    }
-  } catch (error) {
-    console.log('Errore durante il recupero della fattura da Stripe:', error.response.data.error);
-  }
-}
-
-// Utilizzo della funzione per scaricare una fattura
-const invoiceId = 'invoice_123'; // Sostituisci con l'ID della fattura desiderata
-downloadInvoiceFromStripe(invoiceId);
-
-

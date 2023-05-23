@@ -78,7 +78,7 @@ function write_db_pdo($sql, $arrayIn = NULL){
 		} catch(PDOException $e) {
             //Handling PDOException
 			echo "DB ERROR" ;
-            //$errori[] = $e->getMessage();
+            echo $e->getMessage();
 		}
 
     return array($queryStatus,$queryRow);
@@ -247,11 +247,14 @@ function register($name, $surname, $trn, $email, $password, $password_confirm) {
 						);
 
     $sql_register = "INSERT INTO roomcustomer (name, surname, trn, email, password) VALUES (:name, :surname, :trn, :email, :password)";
-    list($status_register, $content_register, $nrows_register) = read_db_pdo($sql_register, $array_register);
+    list($status_register, $content_register, $nrows_register) = write_db_pdo($sql_register, $array_register);
 
 	//get user id for login after register
+    $array_get_id = array(
+		':email'  => $email
+		);
     $sql_get_id = "SELECT id FROM `roomcustomer` WHERE email = :email";
-    list($status_get_id, $content_get_id, $nrows_get_id) = read_db_pdo($sql_get_id, $array_register);
+    list($status_get_id, $content_get_id, $nrows_get_id) = read_db_pdo($sql_get_id, $array_get_id);
 
 	if ($status_register == 1) {
 		$id = $content_get_id[0]['id'];
@@ -262,6 +265,34 @@ function register($name, $surname, $trn, $email, $password, $password_confirm) {
 		$result['error_description'] = 'Registration failed.';
 		return $result;
 	}
+}
+
+/******************************************************
+ *           	Order Attempts DB 
+ *****************************************************/
+
+function orderAttempt($idRoom, $checkinDate, $checkoutDate, $sessionId) {
+	$array_attempt = array(
+		':idRoom' => $idRoom,
+		':checkinDate' => $checkinDate,
+		':checkoutDate' => $checkoutDate,
+		':sessionId' => $sessionId
+	);
+
+	//if the order attempt is already in the db, don't insert it again
+	$sql_attempt = "
+	INSERT INTO orderattempt (roomType, checkinDate, checkoutDate, sessionId)
+	SELECT :idRoom, :checkinDate, :checkoutDate, :sessionId
+	WHERE NOT EXISTS (
+		SELECT 1
+		FROM orderattempt
+		WHERE roomType = :idRoom
+		  AND checkinDate = :checkinDate
+		  AND checkoutDate = :checkoutDate
+		  AND sessionId = :sessionId
+	); 
+	";
+	list($status_attempt, $content_attempt, $nrows_attempt) = read_db_pdo($sql_attempt, $array_attempt);
 }
 
 

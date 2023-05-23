@@ -1,48 +1,60 @@
 <?php
+include_once('../function.php');
 
 /*  -----------------------------------------------------------------------------------------------
-         Documentation: https://github.com/Invoice-Generator/invoice-generator-api
+        Documentation: https://github.com/Invoice-Generator/invoice-generator-api  
+         
+        PER IL PROFESSORE:
+
+        HO DOVUTO UTILIZZARE CURL SU UN DOMINIO ESTERNO PER POTER GENERARE LE FATTURE
+        QUESTO PERCHE' GIRANDO LOCALMENTE AVEVO PROBLEMI RIGUARDO LA SCRITTURA DEI FILE 
+        CON FILE PUT CONTENTS, QUINDI HO DOVUTO UTILIZZARE CURL PER POTER GENERARE LE FATTURE.
+        SUL DB SALVO IL PERCORSO COMPLETO DELLA FATTURA PER POTERLA VISUALIZZARE ESTERNAMENTE
 --------------------------------------------------------------------------------------------------- */
 
-//function CreateInvoice($name, $surname, $paymentId, $roomName, $total){
-function CreateInvoice(){
+function CreateInvoicebyId($userid, $roomName, $total){
+    //gen unique id
+    $unique_id = uniqid();
 
-    $apiUrl = 'https://invoice-generator.com';
+    $array_get_info = array(':id'  => $userid);
+    $sql_get_info = "SELECT name, surname FROM `roomcustomer` WHERE id = :id";
+    list($status_get_info, $content_get_info, $nrows_get_info) = read_db_pdo($sql_get_info, $array_get_info);
 
+    $name = $content_get_info[0]['name'];
+    $surname = $content_get_info[0]['surname'];
+
+    $url = 'https://codepro.it/api/createInvoice.php';
+
+    // Create a new cURL resource
+    $curl = curl_init($url);
+
+    // Set the POST data
     $data = array(
-        'from' => 'Emaar Properties Ltd',
-        'to' => 'Cavallaro Lorenzo',
-        'logo' => 'https://i.ibb.co/1XCD2mw/black.png',
-        'number' => 1,
-        'currency' => 'AED',
-        'items' => array(
-            array(
-                'name' => 'Single Sea View Suite',
-                'quantity' => 1,
-                'unit_cost' => 11200.50,
-            ),
-        ),
-        'notes' => 'Thanks for your business!',
+        'name' => $name,
+        'surname' => $surname,
+        'roomname' => $roomName,
+        'total' => $total
     );
+    $postData = http_build_query($data);
 
-    $options = array(
-        'http' => array(
-            'header' => "Content-Type: application/json\r\n",
-            'method' => 'POST',
-            'content' => json_encode($data),
-        ),
-    );
+    // Set the appropriate options
+    curl_setopt($curl, CURLOPT_POST, true);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
-    $context = stream_context_create($options);
-    $response = file_get_contents($apiUrl, false, $context);
+    // Execute the request
+    $response = curl_exec($curl);
 
-    $filename = uniqid().'.pdf';
-
-    file_put_contents('../invoices/'.$filename, $response);
-
-
+    // Check for errors
+    if(curl_errno($curl)){
+        $error_message = curl_error($curl);
+        // Handle the error appropriately
     }
 
-    CreateInvoice();
+    // Close cURL resource
+    curl_close($curl);
+
+    return $response;
+}
 
 ?>

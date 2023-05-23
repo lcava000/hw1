@@ -1,9 +1,8 @@
 <?php 
 session_start();
 require_once('./function.php');
-
+require_once('./auth.php');
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +22,6 @@ require_once('./function.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
 
 <body>
-
     <header class="otherpage">
         <nav class="dashboard">  
             <div class="logo">
@@ -34,63 +32,53 @@ require_once('./function.php');
                 <li><a href="./contact.php"><i class="fa-solid fa-phone"></i>Contact</a></li>
             </ul>
             <div class="headerButton">
-                <a href="#" class="btn-primary white">Log Out</a>
+                <a href="./logout.php" class="btn-primary white">Log Out</a>
             </div>
         </nav>
     </header>
 
-    <div class="containerReservation">
-        <div class="boxReservation">
-            <h2>Booking Summary</h2>
+    <div class="box">
+        <div class="containerReservation">
+            <div class="boxReservation">
+                <h2>Booking Summary</h2>
+                <table>
+                <thead>
+                    <th>Room</th>
+                    <th>Check-in Date</th>
+                    <th>Check-out Date</th>
+                    <th>Guests</th>
+                    <th>Total</th>
+                    <th>Manage</th>
+                </thead>
+                <tbody id="summaryReservation">
+                    
+                </tbody>
+                </table>
+
+            </div>
+
+            <div class="boxReservation">
+            <h2>Invoices and Payment History</h2>
             <table>
-            <thead>
-                <th>Room</th>
-                <th>Check-in Date</th>
-                <th>Check-out Date</th>
-                <th>Guests</th>
-                <th>Total</th>
-                <th>Manage</th>
-            </thead>
-            <tbody id="summaryReservation">
-                
-            </tbody>
-            </table>
+                <thead>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Payment Method</th>
+                    <th>Download Invoice</th>
+                </thead>
+                <tbody id="paymentReservation">
+                    
+                </tbody>
+                </table>
 
+            </div>
         </div>
-
-        <div class="boxReservation">
-        <h2>Invoices and Payment History</h2>
-        <table>
-            <thead>
-                <th>Invoice Number</th>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Payment Method</th>
-                <th>Status</th>
-            </thead>
-            <tbody id="paymentReservation">
-                
-            </tbody>
-            </table>
-
-        </div>
-
     </div>
     
-        
     <footer>
-        <div class="row">
-            <div class="column three">
-              <h3>Contact Information: </h3>
-              <p>Some text..</p>
-            </div>
-            <div class="column three"></div>
-            <div class="column three">
-              <h3>Newsletter:</h3>
-              <p>Some text..</p>
-            </div>
-          </div>
-        <p>&copy; 2023 Dubai Emaar Properties Hotel. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2023 Dubai Emaar Properties Hotel. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src='./js/dashboard.js' defer></script>

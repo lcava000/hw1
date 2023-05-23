@@ -17,6 +17,16 @@ function roomDescriptionOnText(text){
     //Assign roomDescription
     const p = document.getElementById('roomDescription');
     p.innerHTML = data.roomDescription;
+
+    const roomImage = document.getElementById("roomImage");
+    roomImage.src = data.roomImage; 
+    roomImage.alt = data.roomName; 
+
+    const roomName = document.getElementById("roomName");
+    roomName.innerHTML = data.roomName;
+
+
+
 }
 
 function roomDescriptionOnResponse(response){
@@ -119,17 +129,36 @@ search.addEventListener("click", () => {
     //Date
     const checkInInput = document.querySelector("#checkInInput").value
     const checkOutInput = document.querySelector("#checkOutInput").value
+    const currentDate = new Date();
 
+    console.log(currentDate);
+
+    //if checkout date is before checkin date
     if(checkOutInput<=checkInInput){
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'La data del checkout non è corretta!',
+            text: 'Checkout Date is incorrect!',
           })
 
 
         //Set checkout date checkin date + 1
         document.querySelector("#checkOutInput").value = '';
+    }
+    // Convert the check-in input to a Date object
+    const checkInDate = new Date(checkInInput);
+    // Set the time portion of the current date to midnight
+    currentDate.setHours(0, 0, 0, 0);
+    // Compare the check-in date with the current date
+    if (checkInDate < currentDate) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Check-in Date is incorrect!',
+        });
+      
+        // Reset the check-in input field
+        document.querySelector("#checkInInput").value = '';
     }
 
     //Delete all Child Elements if they exist
@@ -142,7 +171,6 @@ search.addEventListener("click", () => {
     fetch("/json/roomPrice.php?id="+id+"&checkin="+ checkInInput + "&checkout=" + checkOutInput).then(roomPriceOnResponse).then(roomPriceOnText);
 
 });
-
 
 /**************************************************
                 On Load Page

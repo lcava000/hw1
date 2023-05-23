@@ -1,928 +1,745 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
 }
-
-
-/* -------------------------------------------------------------------------------- */
-/* ! General Button */
-/* -------------------------------------------------------------------------------- */
-
 .btn-primary {
-    text-align: center; 
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-weight: 700;
-    text-decoration: none;
-    cursor: pointer; 
-    text-decoration: none;
-    padding: 0.50em 1em;
-
-    margin-bottom: 10px;
-    margin-top: 10px;
+  text-align: center;
+  font-family: 'Reem Kufi Ink',sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  text-decoration: none;
+  padding: .5em 1em;
+  margin-bottom: 10px;
+  margin-top: 10px
 }
-
-.btn-primary.small{
-    font-size: 0.90em;
-    margin: 0em 0em;
+.btn-primary.small {
+  font-size: .9em;
+  margin: 0 0
 }
-
-
-/* ! White Button */
-
 .btn-primary.white {
-    background-color: white;
-    color: #122526;
-    border: 2px solid #122526;
+  background-color: #fff;
+  color: #122526;
+  border: 2px solid #122526
 }
-
 .btn-primary.white:hover {
-    background-color: #122526;
-    color: white;
-    border: 2px solid white;
+  background-color: #122526;
+  color: #fff;
+  border: 2px solid #fff
 }
-
-
-/* ! Green Button */
-
 .btn-primary.green {
-    background-color: #122526;
-    color: white;
-    border: 2px solid white;
+  background-color: #122526;
+  color: #fff;
+  border: 2px solid #fff
 }
-
 .btn-primary.green:hover {
-    background-color: white;
-    color: #122526;
-    border: 2px solid #122526;
+  background-color: #fff;
+  color: #122526;
+  border: 2px solid #122526
 }
-
-
-
-
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
+  font-family: Arial,sans-serif;
+  line-height: 1.6
 }
-
 header {
-    height: 540px;
-    background-color: #122526;
-    padding: 20px;
+  height: 540px;
+  background-color: #122526;
+  padding: 20px
 }
-
 .logo img {
-    max-height: 120px;
+  max-height: 120px
 }
-
-nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-height: 25%;
-    margin: 0px 40px;
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-height: 25%;
+  margin: 0 40px
 }
-
 nav i {
-    margin-right: 7px;
+  margin-right: 7px
 }
-
 nav ul {
-    list-style: none;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+  list-style: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center
 }
-
 nav ul li {
-    margin: 30px;
+  margin: 30px
 }
-
 nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-family: 'Reem Kufi Ink',sans-serif;
+  font-weight: 700;
+  font-size: 18px
 }
-
 .headerButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center
 }
-
-
 section {
-    padding: 20px;
+  padding: 20px
 }
-
 .container {
-    margin-top: 10px;
-    margin-bottom: 100px;
-    height: 600px;
+  font-family: 'Reem Kufi Ink',sans-serif
 }
-
 h2 {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    text-align: center; /* allineamento del testo */
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-weight: 700;
-    font-size: 40px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  text-align: center;
+  font-family: 'Reem Kufi Ink',sans-serif;
+  font-weight: 700;
+  font-size: 40px
 }
-
 .container .roomShowcase {
-    margin: 0px 100px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
+  margin: 0 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between
 }
-
-.frame{
-    box-shadow: 0px 18px 59px rgba(0, 0, 0, 0.15);
-    margin: 0px 40px;
-
-    width: 33%;
-    height: fit-content;
+.frame {
+  box-shadow: 0 18px 59px rgba(0,0,0,.15);
+  margin: 0 50px;
+  width: 33%;
+  height: fit-content
 }
-
-.frame img{
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    
+.frame img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover
 }
-
 .frameContainer {
-    padding: 10px;
-    margin: 20px;
+  padding: 10px;
+  margin: 20px
 }
-
-.frameContainer h3{
-    text-align: center; /* allineamento del testo */
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    margin: 10px 0px;
+.frameContainer h3 {
+  text-align: center;
+  font-family: 'Reem Kufi Ink',sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin: 10px 0
 }
-
-.frameContainer p{
-    text-align: center; /* allineamento del testo */
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    margin: 10px 0px;
+.frameContainer p {
+  text-align: center;
+  font-family: 'Reem Kufi Ink',sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  margin: 10px 0
 }
-
-.roomButton{
-    display: flex;
-    justify-content: center;
-    text-align: center; /* allineamento del testo */
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-weight: 700;
-    text-decoration: none;
-    cursor: pointer; /* cursore del mouse quando si passa sopra il bottone */
-    background-color: #122526; /* colore di sfondo del bottone */
-    color: white; /* colore del testo */
-    text-decoration: none;
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+.roomButton {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Reem Kufi Ink',sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #122526;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  margin-top: 20px
 }
-
-.roomButton:hover{
-    background-color: white; /* colore di sfondo del bottone */
-    color: #122526; /* colore del testo */
-    border: 3px solid #122526;
+.roomButton:hover {
+  background-color: #fff;
+  color: #122526;
+  border: 3px solid #122526
 }
-
-
 .container_testimonial {
-    text-align: center; /* allineamento del testo */
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-weight: 700;
-    text-decoration: none;
-    color: white; /* colore del testo */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;    
+  text-align: center;
+  font-family: 'Reem Kufi Ink',sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center
 }
-.container_testimonial h2{
-    margin-top: 20px;
-    margin-bottom: 30px;
-    text-align: center; /* allineamento del testo */
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-weight: 700;
-    font-size: 40px;
+.container_testimonial h2 {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: 'Reem Kufi Ink',sans-serif;
+  font-weight: 700;
+  font-size: 40px
 }
 .testimonial {
-    position: relative;
-    margin: 20px;
-    width: 350px;
-    height: 450px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    overflow: hidden;
-    z-index: 1;
-    transition: transform 0.3s ease;
-  }
-  .testimonial:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    z-index: 2;
-  }
-
-  .testimonial img {
-    display: block;
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-  }
-
-  .testimonial p {
-    margin: 20px;
-    font-size: 16px;
-    font-weight: 100;
-    font-style: italic;
-    color: #323232;
-    text-align: center;
-  }
-  
+  margin: 20px;
+  width: 350px;
+  height: 450px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform .3s ease
+}
+.testimonial:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.3);
+  z-index: 2
+}
+.testimonial img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover
+}
+.testimonial p {
+  margin: 20px;
+  font-size: 16px;
+  font-weight: 100;
+  font-style: italic;
+  color: #323232;
+  text-align: center
+}
 .testimonial .author {
-    display: block;
-    margin: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    color: #323232;
-  }
-  
-
+  margin: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  color: #323232
+}
 .background {
-    background-image: url("../asset/images/slideshow/slide1.jpg");
-    position: relative;
-    min-height: 400px;
-
-    
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-
+  padding: 1%;
+  background-image: url("../asset/images/slideshow/dubai.jpg");
+  background-position: center;
+  min-height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center
 }
-
-.layer {
-    background-color: rgba(0,0,0,0.7);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
 .boxDescription {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    margin: 80px 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 80px 200px;
+  color: #fff;
+  font-family: 'Reem Kufi Ink',sans-serif
 }
-
-.boxDescription h2{
-    color: #fff;
-    text-align: center;
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-weight: 800;
-    font-size: 60px;
+.boxDescription h2 {
+  font-weight: 800;
+  font-size: 60px
 }
-
-.boxDescription p{
-    color: #fff;
-    text-align: center;
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-weight: 200;
-    font-size: 15px;
+.boxDescription p {
+  font-weight: 200;
+  font-size: 15px
 }
-
-
-
-/* -------------------------------------------------------------------------------- */
-/* ! General */
-/* -------------------------------------------------------------------------------- */
 .box {
-    min-height: 40vh;
-    height: auto;
-
+  position: relative;
+  min-height: calc(100vh - 17vh)
 }
-
-
 .box.content {
-    margin-top: 0%;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 2%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center
 }
-
-
-h1, h2, h3 {
-    margin-bottom: 0.20em;
+h1,
+h2,
+h3 {
+  margin-bottom: .2em
 }
-
 p {
-    margin-bottom: 15px;
+  margin-bottom: 15px
 }
-
 #home {
-    font-family: 'Reem Kufi Ink', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
+  font-family: 'Reem Kufi Ink',sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff
 }
-
 #home h1 {
-    font-weight: 700;
-    font-size: 45px;
+  font-weight: 700;
+  font-size: 45px
 }
 #home p {
-    font-weight: 700;
-    font-size: 18px;
+  font-weight: 700;
+  font-size: 18px
 }
-
 #home a {
-    display: inline-block;
-    background-color: white; /* colore di sfondo del bottone */
-    color: #122526; /* colore del testo */
-    text-decoration: none;
-    padding: 10px 20px;
-    margin-top: 15px;
-
+  display: inline-block;
+  background-color: #fff;
+  color: #122526;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-top: 15px
 }
-
 .room {
-    display: inline-block;
-    width: 30%;
-    margin: 10px;
-    text-align: center;
+  display: inline-block;
+  width: 30%;
+  margin: 10px;
+  text-align: center
 }
-
 .room img {
-    width: 100%;
-    height: auto;
-    border: 3px solid #333;
-    border-radius: 5px;
+  width: 100%;
+  height: auto;
+  border: 3px solid #333;
+  border-radius: 5px
 }
-
-/* -------------------------------------------------------------------------------- */
-/* ! Row and 3 Column Section */
-/* -------------------------------------------------------------------------------- */
-
-*{
-    box-sizing: border-box;
-  }
-
-  .column.three{
-    float: left;
-    width: 33.33%;
-    padding: 10px;
-    height: auto;
-
-    border: 3px solid blue;
-  }
-
-  .column.two{
-    float: left;
-    width: 50.00%;
-    padding: 10px;
-    height: auto;
-  }
-
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-
-  }
-
-/* -------------------------------------------------------------------------------- */
-/* ! Footer Section */
-/* -------------------------------------------------------------------------------- */
-
-footer h3 {
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-weight: 400;
-    font-size: 30px;
-
+* {
+  box-sizing: border-box
 }
-
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap
+}
+.column.three {
+  width: 33.33%;
+  padding: 10px;
+  height: auto
+}
+.subscribe {
+  margin: 10%
+}
 footer {
-    color: #fff;
-    text-align: center;
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-
-    background-color: #122526;
-    padding: 20px;
-    text-align: center;
+  color: #fff;
+  font-weight: 400;
+  font-family: 'Reem Kufi Ink',sans-serif;
+  background-color: #122526;
+  padding: 20px;
+  text-align: center;
+  height: 7vh
 }
-
-
-/* -------------------------------------------------------------------------------- */
-/* ! Header Secondary Page */
-/* -------------------------------------------------------------------------------- */
-
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto
+}
+footer p {
+  margin: 0;
+  font-size: 14px
+}
 header.otherpage {
-    height: 93px;
-    background-color: #122526;
-    padding: 20px;
+  height: 10vh;
+  background-color: #122526;
+  padding: 20px
 }
 header.otherpage nav div a img {
-    width: 100px;
-    height: auto;
-    object-fit: cover;
+  width: 100px;
+  height: auto;
+  object-fit: cover
 }
-
-header.otherpage nav ul, div.headerButton{
-    margin-top: 25px;
+div.headerButton,
+header.otherpage nav ul {
+  margin-top: 25px
 }
-
-header.otherpage nav div.logo{
-    margin:  -25px 0px;
-
+header.otherpage nav div.logo {
+  margin: -25px 0
 }
-
-header.otherpage nav div.logo a img{
-    object-fit: cover;
-    object-position: center;
+header.otherpage nav div.logo a img {
+  object-fit: cover;
+  object-position: center
 }
-
-/* -------------------------------------------------------------------------------- */
-/* ! Hero Secondary Page */
-/* -------------------------------------------------------------------------------- */
-
 .hero {
-    height: 25vh;
-    background-image: url("../asset/images/slideshow/slide1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
+  height: 25vh;
+  background-image: url("../asset/images/slideshow/slide.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center
 }
-
 .hero h1 {
-    margin: 0em 0;
-    color: #122526;
-    text-align: center;
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-weight: 700;
-    font-size: 50px;
+  margin: 0 0;
+  color: #122526;
+  text-align: center;
+  font-family: 'Reem Kufi Ink',sans-serif;
+  font-weight: 700;
+  font-size: 50px
 }
-
-/* -------------------------------------------------------------------------------- */
-/* ! Room Details Section */
-/* -------------------------------------------------------------------------------- */
-
-.containerRoom{
-    margin-top: 3em;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
+.containerRoom {
+  margin-top: 3em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center
 }
-
-.containerRoom .containerRoomItem{
-    flex-basis: 50%;
-    box-sizing: border-box;
+.containerRoom .containerRoomItem {
+  flex-basis: 50%;
+  box-sizing: border-box
 }
-
-.containerRoom .containerRoomItem img{
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
+.containerRoom .containerRoomItem img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px
 }
-
-.boxService{
-    margin: 4% 10%;
-    font-family: 'Reem Kufi Ink', sans-serif;
+.boxService {
+  margin: 4% 10%;
+  font-family: 'Reem Kufi Ink',sans-serif
 }
-.boxService h3{
-    font-weight: 700;
-    font-size: 30px;
+.boxService h3 {
+  font-weight: 700;
+  font-size: 30px
 }
-
-.containerService{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
+.containerService {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center
 }
-
-/* ! Icon */
-.containerServiceItem i{
-    margin-right: 7px;
+.containerServiceItem i {
+  margin-right: 7px
 }
-
-.containerService .containerServiceItem{
-    margin-right: 15px;
+.containerService .containerServiceItem {
+  margin-right: 15px
 }
-
 ul {
-    list-style: none;
+  list-style: none
 }
-
-/* -------------------------------------------------------------------------------- */
-/* ! Room Book Section */
-/* -------------------------------------------------------------------------------- */
-
-.container{
-    margin: 10%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
+.container {
+  margin: 4%,10%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center
 }
-
-
-/* -------------------------------------------------------------------------------- */
-/* ! Table */
-/* -------------------------------------------------------------------------------- */
-
 table {
-    font-family: 'Reem Kufi Ink', sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+  font-family: 'Reem Kufi Ink',sans-serif;
+  border-collapse: collapse;
+  width: 100%
 }
-th, td {
-    text-align: center;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
+td,
+th {
+  text-align: center;
+  padding: 8px;
+  border-bottom: 1px solid #ddd
 }
 th {
-    background-color: #122526;
-    color: white;
+  background-color: #122526;
+  color: #fff
 }
-
 .available {
-    color: green;
+  color: green
 }
-
 .booked {
-    color: red;
+  color: red
 }
-
 .date-selection {
-    font-family: 'Reem Kufi Ink', sans-serif;
-    display: flex;
-    justify-content: space-between;
-    margin: 2em auto;
+  font-family: 'Reem Kufi Ink',sans-serif;
+  display: flex;
+  justify-content: space-between;
+  margin: 2em auto
 }
-  
 .check-in,
 .check-out {
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto 1em
+}
+label {
+  font-family: 'Reem Kufi Ink',sans-serif;
+  font-size: 18px;
+  margin-bottom: 10px
+}
+input[type=date] {
+  width: 200px;
+  height: 40px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px
+}
+.roomDetails {
+  font-size: 30px;
+  font-weight: 500
+}
+.roomImage {
+  width: 99%
+}
+.containerCheckout {
+  margin-top: 3em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  margin-top: 0;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 2%;
+  font-family: 'Reem Kufi Ink',sans-serif
+}
+.containerCheckout .containerCheckoutItemForm {
+  flex-basis: 60%;
+  box-sizing: border-box
+}
+.containerCheckout .containerCheckoutItemDetails {
+  flex-basis: 40%;
+  box-sizing: border-box
+}
+.price {
+  color: #fff;
+  margin: 6% 6%;
+  padding: .2em;
+  align-items: center;
+  background-color: #122526
+}
+.containerCheckout h3 {
+  font-weight: 700;
+  font-size: 20px
+}
+.containerCheckout h5 {
+  font-weight: 700;
+  font-size: 17px
+}
+.containerCheckout i {
+  font-size: 27px
+}
+.containerTable {
+  margin: 10%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 200
+}
+.containerTable.total {
+  font-size: 22px;
+  font-weight: 700
+}
+.formCheckout {
+  margin: auto 10%
+}
+.paymentBlock {
+  margin: 8% 15%
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0
+}
+td {
+  text-align: center
+}
+.form-group {
+  margin-bottom: 20px
+}
+.stepLogin {
+  display: block
+}
+.stepRegister {
+  display: none
+}
+#card-cvc.form-control,
+#card-exp.form-control,
+#card-number.form-control {
+  display: inline-block
+}
+.StripeElement {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 5px
+}
+.StripeElement--focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+}
+label {
+  display: block;
+  margin-bottom: 5px
+}
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=text],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 5px
+}
+input[type=email]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=text]:focus,
+select:focus,
+textarea:focus {
+  outline: 0;
+  box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+}
+input[type=email].wrong,
+input[type=number].wrong,
+input[type=password].wrong,
+input[type=text].wrong,
+select.wrong,
+textarea.wrong {
+  border: 1px solid red
+}
+.error_text {
+  color: red;
+  font-size: 13px
+}
+.formButton {
+  background-color: #122526;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer
+}
+.formButton:hover {
+  background-color: #fff;
+  color: #122526;
+  border: 2px solid #122526
+}
+h2 {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Reem Kufi Ink',sans-serif;
+  font-weight: 700;
+  font-size: 40px
+}
+.containerLogin {
+  margin: 15% 15%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 200
+}
+.containerRegister {
+  margin: 15% 15%;
+  margin-top: 2%;
+  margin-bottom: 8%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 200
+}
+.containerReservation {
+  margin: 8% 10%
+}
+.boxReservation {
+  margin-bottom: 2%
+}
+@media screen and (max-width:768px) {
+  header {
+    height: 300px
+  }
+  .logo img {
+    max-height: 80px
+  }
+  nav {
+    margin: 0
+  }
+  nav ul {
     flex-direction: column;
     align-items: center;
-    margin: auto 1em;
-}
-  
-label{
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-  
-input[type="date"] {
-    width: 200px;
-    height: 40px;
-    font-size: 18px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding: 5px;
-}
-
-
-/* -------------------------------------------------------------------------------- */
-/* ! Room Details Section */
-/* -------------------------------------------------------------------------------- */
-.roomDetails{
-    font-size: 30px;
-    font-weight: 500;
-}
-
-.roomImage {
-width: 99%;
-
-
-}
-
-
-/* -------------------------------------------------------------------------------- */
-/* ! Checkout Section */
-/* -------------------------------------------------------------------------------- */
-
-.containerCheckout{
-    margin-top: 3em;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-    margin-top: 0%;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 2%;
-    font-family: 'Reem Kufi Ink', sans-serif;
-
-}
-
-.containerCheckout .containerCheckoutItemForm{
-    flex-basis: 60%;
-    box-sizing: border-box;
-}
-
-.containerCheckout .containerCheckoutItemDetails{
-    flex-basis: 40%;
-    box-sizing: border-box;
-}
-
-.price {
-    color: #fff;
-    margin: 6% 6%;
-    padding: 0.20em;
-    align-items: center;
-    background-color: #122526;
-}
-
-.containerCheckout h3{
-    font-weight: 700;
-    font-size: 20px;
-}
-
-.containerCheckout h5{
-    font-weight: 700;
-    font-size: 17px;
-}
-.containerCheckout i{
-    font-size: 27px;
-}
-
-.containerTable{
-    margin: 10%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-    font-size: 17px;
-    font-weight: 200;
-}
-
-.containerTable.total{
-    font-size: 22px;
-    font-weight: 700;
-
-}
-
-.formCheckout {
-    margin: auto 10%;
-}
-
-.paymentBlock {
-    margin: 8% 15%;
-}
-
-table {
+    margin: 0
+  }
+  nav ul li {
+    margin: 10px
+  }
+  .room {
+    width: 100%
+  }
+  .container_testimonial {
+    margin: 20px
+  }
+  .testimonial {
+    width: 100%
+  }
+  .testimonial img {
+    height: 200px
+  }
+  .boxDescription {
+    margin: 50px 20px
+  }
+  .containerRoom .containerRoomItem {
+    flex-basis: 100%
+  }
+  .boxService {
+    margin: 5% 3%
+  }
+  .containerService .containerServiceItem {
+    margin-right: 0
+  }
+  .container {
+    margin: 5%
+  }
+  .date-selection {
+    flex-direction: column;
+    align-items: center
+  }
+  .check-in,
+  .check-out {
+    margin: 1em 0
+  }
+  input[type=date] {
     width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-
-}
-  
-td {
-text-align: center;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-/* -------------------------------------------------------------------------------- */
-/* ! Stripe Integration Element */
-/* -------------------------------------------------------------------------------- */
-
-/* Can't see what I type without this */
-#card-number.form-control,
-#card-cvc.form-control,
-#card-exp.form-control {
-    display:inline-block;
-}
-
-.StripeElement{
+    margin-bottom: 1em
+  }
+  .logo img {
+    max-height: 80px
+  }
+  #home h1 {
+    font-size: 17px
+  }
+  nav ul li a {
+    display: none
+  }
+  .container .roomShowcase {
+    flex-direction: column;
+    margin: 10%
+  }
+  .frame {
     width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-top: 5px;
-}
-
-/* Blue outline on focus */
-.StripeElement--focus {
-    border-color: #80BDFF;
-    outline:0;
-    box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
-
-/* -------------------------------------------------------------------------------- */
-/* ! Form General Element */
-/* -------------------------------------------------------------------------------- */
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"], input[type="email"], input[type="number"], input[type="password"], select, textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-top: 5px;
-}
-
-
-.formButton{
-    background-color: #122526;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.formButton:hover {
-    background-color: white;
-    color: #122526;
-    border: 2px solid #122526;
-}
-
-
-
-
-h2 {
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin-top: 10%;
+    margin-bottom: 10%
+  }
+  .boxDescription {
     text-align: center;
-    font-family: 'Reem Kufi Ink', sans-serif;
-    font-weight: 700;
-    font-size: 40px;
-}
-
-
-/* -------------------------------------------------------------------------------- */
-/* ! Login Page */
-/* -------------------------------------------------------------------------------- */
-
-.containerLogin {
-    margin: 10% 15%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-    font-size: 17px;
-    font-weight: 200;
-}
-
-/* -------------------------------------------------------------------------------- */
-/* ! Register Page */
-/* -------------------------------------------------------------------------------- */
-
-.containerRegister {
-    margin: 0% 15%;
-    margin-top: 2%;
-    margin-bottom: 8%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-    font-size: 17px;
-    font-weight: 200;
-}
-
-
-/* -------------------------------------------------------------------------------- */
-/* ! Dashboard Page */
-/* -------------------------------------------------------------------------------- */
-  
-.containerReservation{
-    margin: 8% 10%;
-}
-
-.boxReservation{
-    margin-bottom: 2%;
-}
-
-
- 
-
-/* -------------------------------------------------------------------------------- */
-/* ! Mobile Page */
-/* -------------------------------------------------------------------------------- */
-
-@media screen and (max-width: 768px) {
-    header {
-        height: 300px;
-    }
-
-    .logo img {
-        max-height: 80px;
-    }
-
-    nav {
-        margin: 0px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        margin: 0px;
-    }
-
-    nav ul li {
-        margin: 10px;
-    }
-
-    .room {
-        width: 100%;
-    }
-
-    .container_testimonial {
-        margin: 20px;
-    }
-
-    .testimonial {
-        width: 100%;
-    }
-
-    .testimonial img {
-        height: 200px;
-    }
-
-    .boxDescription {
-        margin: 50px 20px;
-    }
-
-    .containerRoom .containerRoomItem {
-        flex-basis: 100%;
-    }
-
-    .boxService {
-        margin: 5% 3%;
-    }
-
-    .containerService .containerServiceItem {
-        margin-right: 0px;
-    }
-
-    .container {
-        margin: 5%;
-    }
-
-    .date-selection {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .check-in,
-    .check-out {
-        margin: 1em 0px;
-    }
-
-    input[type="date"] {
-        width: 100%;
-        margin-bottom: 1em;
-    }
+    margin: 10px 20px
+  }
+  .boxDescription h2 {
+    font-size: 20px
+  }
+  .boxDescription p {
+    font-size: 15px
+  }
+  .row {
+    flex-direction: column
+  }
+  .column.three {
+    flex-basis: 100%;
+    width: 100%
+  }
+  .subscribe {
+    margin: 4%
+  }
 }

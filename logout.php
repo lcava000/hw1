@@ -8,6 +8,6 @@ session_unset();
 session_destroy();
 
 // Reindirizza l'utente alla pagina di login (sostituisci con la tua pagina di destinazione)
-header("Location: ./checkout.php");
+header("Location: ./index.html");
 exit;
 ?>

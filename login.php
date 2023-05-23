@@ -1,9 +1,7 @@
 <?php 
-session_start();
 require_once('./function.php');
-
+session_start();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,25 +19,20 @@ require_once('./function.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <body>
+    
     <header class="otherpage">
         <nav>  
             <div class="logo">
-                <a href="#home"><img src="asset/logo/white.png" alt="Dubai Real Estate"></a>
+                <a href="./index.html"><img src="asset/logo/white.png" alt="Dubai Real Estate"></a>
             </div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#rooms">Rooms</a></li>
-                <li><a href="#facilities">Facilities</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
             <div class="headerButton">
-                <a href="#" class="btn-primary white">Book now</a>
+                <a href="./login.php" class="btn-primary white">Login</a>
             </div>
         </nav>
     </header>
 
     <div class="containerLogin">
-        <form class="formCheckout" action="./checkout.php" method="POST" id="login_form">
+        <form class="formCheckout" action="./login.php" method="POST" id="login_form">
         <input hidden name="action" value="login_form">
             <h2>Login</h2>
             <div class="form-group">
@@ -50,31 +43,55 @@ require_once('./function.php');
                 <label for="password">Password:</label>
                 <input type="password" id="log_password" name="log_password" required>
             </div>
-            <button class="formButton" id="goRegister" type="button">Not already a member?</button>
+            <a href="./register.php"><button class="formButton" type="button">Not already a member?</button></a>
             <button class="formButton" id="goLoginSubmit" type="button">Login</button>
-
         </form>  
     </div>
         
     
     <footer>
-        <div class="row">
-            <div class="column three">
-              <h3>Contact Information: </h3>
-              <p>Some text..</p>
-            </div>
-            <div class="column three"></div>
-            <div class="column three">
-              <h3>Newsletter:</h3>
-              <p>Some text..</p>
-            </div>
-          </div>
-
-        <p>&copy; 2023 Dubai Emaar Properties Hotel. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2023 Dubai Emaar Properties Hotel. All rights reserved.</p>
+        </div>
     </footer>
-
-    <script src='./js/checkout.js' defer></script>
-    <script src='./js/checkout_summary.js' defer></script>
   
+      <script src='./js/login.js' defer></script>
+
+
+    <?php
+
+    if(isset($_SESSION["isLogged"]) && $_SESSION["isLogged"] === true) {
+        header("Location: ./dashboard.php");
+        exit;
+    }
+
+    if($_POST['action']=="login_form"){
+        $email_form = $_POST['log_email'];
+        $password_form = $_POST['log_password'];
+    
+        $result = login_check($email_form, $password_form);
+    
+        if ($result['success']) {
+            $_SESSION['isLogged'] = true;
+            $_SESSION['user_id'] = $result['user_id'];
+            header("Location: ./dashboard.php");
+            exit;
+        } else {
+            //Debug purpose
+            //print_r ($result);
+
+            $error_description = $result['error_description'];
+            echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '$error_description'
+                });
+                </script>";
+        }
+    }
+
+    ?>
+
 </body>
 </html>

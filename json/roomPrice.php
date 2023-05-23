@@ -13,7 +13,7 @@ if (empty($roomServiceId) || empty($checkinDate) || empty($checkoutDate)) {
     $data = array();
     // Query Request
     $array_read = array(':roomServiceId'  => $roomServiceId);
-    $sql_read = "SELECT id, roomType.roomName, roomPrice, roomService.roomName as 'serviceName' FROM `roomType` JOIN roomService ON roomService.roomId = roomType.roomServiceId WHERE roomServiceId = :roomServiceId";
+    $sql_read = "SELECT id, roomType.roomName, roomType.roomBed, roomPrice, roomService.roomName as 'serviceName' FROM `roomType` JOIN roomService ON roomService.roomId = roomType.roomServiceId WHERE roomServiceId = :roomServiceId";
     list($status_read,$content_read,$nrows_read) = read_db_pdo($sql_read,$array_read);
 
     if($nrows_read > 0){
@@ -36,6 +36,7 @@ if (empty($roomServiceId) || empty($checkinDate) || empty($checkoutDate)) {
             $data[] = array(
                 'id' => $content_read_v["id"],
                 'roomName' => $content_read_v["roomName"],
+                'roomBed' => $content_read_v["roomBed"],
                 'roomPrice' => $content_read_v["roomPrice"],
                 'serviceName' => $content_read_v["serviceName"],
                 'available' => $available
@@ -53,9 +54,6 @@ if (empty($roomServiceId) || empty($checkinDate) || empty($checkoutDate)) {
 
     }
 }
-
-
-
 
 
 ?>

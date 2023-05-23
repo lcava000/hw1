@@ -1,9 +1,7 @@
 <?php 
-session_start();
 require_once('./function.php');
-
+session_start();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,35 +37,35 @@ require_once('./function.php');
     </header>
 
     <div class="containerRegister">
-        <form class="formCheckout" action="./checkout.php" method="POST" id="register_form">
+        <form class="formCheckout" action="./register.php" method="POST" id="register_form">
         <input hidden name="action" value="register_form">
                 <h2>Register</h2>
                 <div class="form-group">
                     <label for="age">Name:</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="reg_name" name="reg_name" required>
                 </div>
                 <div class="form-group">
                     <label for="age">Surname:</label>
-                    <input type="text" id="surname" name="surname" required>
+                    <input type="text" id="reg_surname" name="reg_surname" required>
                 </div>                    
                 <div class="form-group">
                     <label for="age">Tax Registration Number (TRN):</label>
-                    <input type="text" id="trn" name="trn" required>
+                    <input type="text" id="reg_trn" name="reg_trn" required>
                 </div>
                 <div class="form-group">
                     <label for="age">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="reg_email" name="reg_email" required>
                 </div>            
                 <div class="form-group">
                     <label for="age">Password:</label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="reg_password" name="reg_password" required>
                 </div>
                 <div class="form-group">
                     <label for="age">Confirm Password:</label>
-                    <input type="password" id="password_confirm" name="password_confirm" required>
+                    <input type="password" id="reg_password_confirm" name="reg_password_confirm" required>
                 </div> 
                 <button class="formButton" id="goLogin" type="button">Are you already member?</button>
-                <button class="formButton" type="button">Register Now</button>
+                <button class="formButton" id="goRegisterSubmit" type="button">Register Now</button>
 
                 <?php echo $error_description;?>
         </form> 
@@ -75,23 +73,51 @@ require_once('./function.php');
         
     
     <footer>
-        <div class="row">
-            <div class="column three">
-              <h3>Contact Information: </h3>
-              <p>Some text..</p>
-            </div>
-            <div class="column three"></div>
-            <div class="column three">
-              <h3>Newsletter:</h3>
-              <p>Some text..</p>
-            </div>
-          </div>
-
-        <p>&copy; 2023 Dubai Emaar Properties Hotel. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2023 Dubai Emaar Properties Hotel. All rights reserved.</p>
+        </div>
     </footer>
 
-    <script src='./js/checkout.js' defer></script>
-    <script src='./js/checkout_summary.js' defer></script>
+    <script src='./js/register.js' defer></script>
   
+    <?php
+
+    if(isset($_SESSION["isLogged"]) && $_SESSION["isLogged"] === true) {
+        header("Location: ./dashboard.php");
+        exit;
+    }
+
+
+    if($_POST['action']=="register_form"){
+        $name = $_POST['reg_name'];
+        $surname = $_POST['reg_surname'];
+        $trn = $_POST['reg_trn'];
+        $email = $_POST['reg_email'];
+        $password = $_POST['reg_password'];
+        $password_confirm = $_POST['reg_password_confirm'];
+      
+        $result = register($name, $surname, $trn, $email, $password, $password_confirm);
+        
+        if ($result['success'] == true) {
+            $_SESSION['isLogged'] = true;
+            $_SESSION['user_id'] = $result['user_id'];
+            header("Location: ./dashboard.php");
+            exit;
+        } else {
+          $error_description = $result['error_description'];
+          echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '$error_description'
+                });
+                </script>";
+        }
+    }
+    
+
+    ?>
+
+
 </body>
 </html>

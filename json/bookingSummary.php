@@ -21,10 +21,12 @@ if (empty($customerId)) {
                 'id' => $content_read_v["id"],
                 'checkinDate' => $content_read_v["checkinDate"],
                 'checkoutDate' => $content_read_v["checkoutDate"],
-                'totalPayed' => $content_read_v["totalPayed"],
+                'totalPayed' => $content_read_v["totalPayed"] / 100,
                 'isConfirmed' => $content_read_v["isConfirmed"],
                 'roomName' => $content_read_v["roomName"],
-                'roomBed' => $content_read_v["roomBed"]
+                'roomBed' => $content_read_v["roomBed"],
+                'invoiceUrl' => $content_read_v["invoiceUrl"],
+                'timestamp' => $content_read_v["timestamp"]
             );
         }
 
