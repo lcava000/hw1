@@ -112,12 +112,12 @@ function summaryOnResponse(response){
 
 
 
-fetch('./json/getUserId.php')
+fetch('../json/getUserId.php')
   .then(response => response.text())
   .then(data => {
     const userid = data;
     console.log('Success to get ID:', userid);
-    fetch("/json/bookingSummary.php?customerId="+userid).then(summaryOnResponse).then(summartyOnText);
+    fetch("../json/bookingSummary.php?customerId="+userid).then(summaryOnResponse).then(summartyOnText);
 
   })
   .catch(error => {

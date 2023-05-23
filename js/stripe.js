@@ -26,7 +26,7 @@ function stripeTokenHandler(token) {
   formData.append('stripeToken', token.id);
     //the details of payment are sent by server for processing and charging the card using the fetch API in secure way
 
-  fetch('charge.php', {
+  fetch('../charge.php', {
     method: 'POST',
     body: formData
   })

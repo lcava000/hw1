@@ -1,5 +1,5 @@
 
-fetch('./json/roomType.php')
+fetch('../json/roomType.php')
   .then(function(response) {
     return response.json();
   })
